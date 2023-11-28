@@ -43,7 +43,7 @@
                 <a class="nav__link" href="{{ route('convertisseur.index') }}">Convertisseur de monnaie</a>
                 <a class="nav__link" href="{{ route('mensualite.index') }}">Calcule de Mensualité</a>
                 {{-- <a class="nav__link" href="#">Contact</a> --}}
-                <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                {{-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
                     <button @click="open = !open"
                         class="flex flex-row text-gray-900 bg-gray-200 items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                         <span class="uppercase">Query Builder</span>
@@ -82,7 +82,7 @@
 
                                 <a class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                     href="#">
-                                    {{-- <div class="bg-teal-500 text-white rounded-lg p-3">
+                                    <div class="bg-teal-500 text-white rounded-lg p-3">
                                             <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
                                                 class="md:h-6 md:w-6 h-4 w-4">
@@ -94,7 +94,7 @@
                                         <div class="ml-3">
                                             <p class="font-semibold">Comments</p>
                                             <p class="text-sm">Check your latest comments</p>
-                                        </div> --}}
+                                        </div> 
                                     <div class="ml-3">
                                         <p class="font-semibold">Comments</p>
                                         <p class="text-sm">Check your latest comments</p>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </nav>
         </div>
     </div>

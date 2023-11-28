@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="form__header">Convertisseur de la monnaie nationale (DH)</h2>
+    <h2 class="form__header mt-20">Convertisseur de la monnaie nationale (DH)</h2>
     <form action="{{ route('convertisseur.calculate') }}" method="POST">
         <div class="border-b m-auto w-[50%] border-gray-900/10 pb-12">
             @csrf
@@ -23,7 +23,7 @@
                     @enderror
                 </div>
                 <div class="sm:col-span-3">
-                    <label for="devise" class="form__label">Devise</label>
+                    <label for="devise" class="form__label">Devise <span class="text-red-700">*</span></label>
                     <div class="mt-2">
                         <select class="form__select" id="devise" name="devise">
                             <option value="Dollar Américain">Dollar Américain</option>

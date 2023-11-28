@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="form__header">Calcule de Mensualité</h2>
+    <h2 class="form__header mt-20">Calcule de Mensualité</h2>
     <form action="{{ route('mensualite.calculate') }}" method="POST">
         <div class="border-b m-auto w-[50%] border-gray-900/10 pb-12">
             @csrf

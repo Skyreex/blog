@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="form__header">BMI Calculator</h2>
+    <h2 class="form__header mt-20">BMI Calculator</h2>
     <form action="{{ route('bmi.calculate') }}" method="POST">
         <div class="border-b m-auto w-[70%] border-gray-900/10 pb-12">
             @csrf
