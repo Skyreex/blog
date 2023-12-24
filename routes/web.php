@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\StagiaireController;
+use App\Http\Controllers\StagiaireModuleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActionController;
 
@@ -23,5 +24,9 @@ Route::post('/mensualite/calculate', [ActionController::class, 'mensualite'])->n
 
 Route::resource('stagiaires', StagiaireController::class);
 Route::resource('modules', ModuleController::class);
+Route::resource('notes', StagiaireModuleController::class);
 Route::post('/stagiaires/update', [StagiaireController::class, 'update'])->name('stagiaires.update');
 Route::post('/modules/update', [ModuleController::class, 'update'])->name('modules.update');
+Route::post('/notes/update', [StagiaireModuleController::class, 'update'])->name('notes.update');
+Route::get('/editer/{id}', [StagiaireModuleController::class, 'moyenne'])->name('bulletin');
+

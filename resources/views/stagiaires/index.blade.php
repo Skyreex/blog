@@ -245,6 +245,19 @@
                         </button>
                       </li>
                       <li>
+                        <a href="{{route("bulletin" , $stagiaire->id)}}"
+                           class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-700 dark:hover:text-red-400">
+                          <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                               viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"
+                               stroke-linejoin="round">
+                            <path d="M8 3H2v15h7c1.7 0 3 1.3 3 3V7c0-2.2-1.8-4-4-4Z"/>
+                            <path d="m16 12 2 2 4-4"/>
+                            <path d="M22 6V3h-6c-2.2 0-4 1.8-4 4v14c0-1.7 1.3-3 3-3h7v-2.3"/>
+                          </svg>
+                          Bulletin
+                        </a>
+                      </li>
+                      <li>
                         <button type="button" data-modal-target="readProductModal"
                                 data-modal-toggle="readProductModal"
                                 class="readModalButton flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-gray-700 dark:text-gray-200">
@@ -274,8 +287,8 @@
                             Delete
                           </button>
                         </form>
-
                       </li>
+
                     </ul>
                   </div>
                   {{--                  @else--}}
@@ -474,7 +487,6 @@
         <form action="{{route("stagiaires.update")}}" method="post">
           @csrf
           <input type="hidden" name="id"/>
-
           <div class="grid gap-4 mb-4 sm:grid-cols-2">
             <div>
               <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>

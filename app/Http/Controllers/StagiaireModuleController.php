@@ -2,65 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Module;
+use App\Models\Stagiaire;
 use App\Models\StagiaireModule;
 use App\Http\Requests\StoreStagiaireModuleRequest;
 use App\Http\Requests\UpdateStagiaireModuleRequest;
 
 class StagiaireModuleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    return view('notes.index', [
+      'notes' => StagiaireModule::paginate(10)
+      , 'stagiaires' => Stagiaire::all()
+      , 'modules' => Module::all()
+    ]);
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+  public function moyenne($id)
+  {
+    return view('notes.moyenne', [
+      'stagiaire' => Stagiaire::findOrfail($id)]);
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreStagiaireModuleRequest $request)
-    {
-        //
-    }
+  public function store(StoreStagiaireModuleRequest $request)
+  {
+    StagiaireModule::create($request->validated());
+    return redirect()->route('notes.index');
+  }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(StagiaireModule $stagiaireModule)
-    {
-        //
-    }
+  public function update(UpdateStagiaireModuleRequest $request)
+  {
+    StagiaireModule::findOrfail($request->id)->update($request->validated());
+    return redirect()->route('notes.index');
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(StagiaireModule $stagiaireModule)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateStagiaireModuleRequest $request, StagiaireModule $stagiaireModule)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(StagiaireModule $stagiaireModule)
-    {
-        //
-    }
+  public function destroy(StagiaireModule $stagiaireModule)
+  {
+    $stagiaireModule->delete();
+    return redirect()->route('notes.index');
+  }
 }

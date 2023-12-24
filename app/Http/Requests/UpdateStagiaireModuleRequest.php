@@ -11,7 +11,7 @@ class UpdateStagiaireModuleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateStagiaireModuleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'required|integer',
+            'stagiaire_id' => 'required|integer',
+            'module_id' => 'required|integer',
+            'note' => 'required|numeric|min:0|max:20',
+            'date_exam' => 'required|date'
         ];
     }
 }

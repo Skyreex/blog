@@ -22,11 +22,11 @@
            class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
         <a class="nav__link" href="{{ route('stagiaires.index') }}">Stagiaires</a>
         <a class="nav__link" href="{{ route('modules.index') }}">modules</a>
-        <a class="nav__link" href="{{ route('mensualite.index') }}">Calcule de Mensualité</a>
+        <a class="nav__link" href="{{ route('notes.index') }}">notes</a>
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
           <button @click="open = !open"
                   class="flex flex-row text-gray-900 bg-gray-200 items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-            <span class="uppercase">other</span>
+            <span class="uppercase">others</span>
             <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
                  class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
               <path fill-rule="evenodd"

@@ -20,5 +20,9 @@ class Stagiaire extends Model
    public function notes(){
        return $this->hasMany(StagiaireModule::class);
    }
+
+   public function moyenne(){
+       return $this->notes()->avg('note');
+   }
 }
 
