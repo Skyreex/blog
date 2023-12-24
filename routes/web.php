@@ -1,29 +1,27 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PackageController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\StagiaireController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ActionController;
 
 
 Route::view('/', 'home')->name('home');
 
 // IMC
 Route::get('/bmi', [HomeController::class, 'bmi'])->name('bmi.index');
-Route::post('/bmi/calculate', [UserController::class, 'calculateBMI'])->name('bmi.calculate');
+Route::post('/bmi/calculate', [ActionController::class, 'calculateBMI'])->name('bmi.calculate');
 
-// Converrtisseur
+// Convertisseur
 Route::get('/convertisseur', [HomeController::class, 'convertisseur'])->name('convertisseur.index');
-Route::post('/convertisseur/calculate', [UserController::class, 'convertisseur'])->name('convertisseur.calculate');
+Route::post('/convertisseur/calculate', [ActionController::class, 'convertisseur'])->name('convertisseur.calculate');
 
 // Mensualité
 Route::get('/mensualite', [HomeController::class, 'mensualite'])->name('mensualite.index');
-Route::post('/mensualite/calculate', [UserController::class, 'mensualite'])->name('mensualite.calculate');
+Route::post('/mensualite/calculate', [ActionController::class, 'mensualite'])->name('mensualite.calculate');
 
-// TP4
-Route::group(['prefix' => 'tp4', 'as' => 'tp4.'], function () {
-    Route::get('/', [PageController::class, 'index'])->name('index');
-    Route::get('/apropos', [PageController::class, 'apropos'])->name('apropos');
-    Route::resource('packages', PackageController::class);
-});
+Route::resource('stagiaires', StagiaireController::class);
+Route::resource('modules', ModuleController::class);
+Route::post('/stagiaires/update', [StagiaireController::class, 'update'])->name('stagiaires.update');
+Route::post('/modules/update', [ModuleController::class, 'update'])->name('modules.update');
