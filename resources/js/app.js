@@ -28,6 +28,8 @@ $('#stagiaire .readModalButton').on("click", function () {
   $parent.find('#readFiliere').eq(0).text(data.filiere);
   $parent.find('#readStatus').eq(0).text(data.status);
   $parent.find('#readDateNaissance').eq(0).text(data.date_naissance);
+  $parent.find('a#bulletin').eq(0).attr("href", "editer/" + data.id)
+  console.log($parent.find('a#bulletin').eq(0).attr("href"))
 });
 
 $('#module .updateModalButton').on("click", function () {
@@ -80,28 +82,29 @@ $('#note .readModalButton').on("click", function () {
 const bulletin = document.querySelector("#bulletin");
 $("#printBTN").on("click", function () {
   console.log("clicked")
-html2pdf(bulletin, {
-  margin: 10,
-  filename: "moyenne.pdf",
-  image: {
-    type: "jpeg",
-    quality: 0.98,
-  },
-  html2canvas: {
-    scale: 2,
-  },
-  jsPDF: {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait",
-  },
-}).then(function (pdf) {
-  var blob = pdf.output("blob");
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement("a");
-  a.href = url;
-  a.download = "invitation.pdf";
-  a.click();
-  URL.revokeObjectURL(url);
-});})
+  html2pdf(bulletin, {
+    margin: 10,
+    filename: "moyenne.pdf",
+    image: {
+      type: "jpeg",
+      quality: 0.98,
+    },
+    html2canvas: {
+      scale: 2,
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait",
+    },
+  }).then(function (pdf) {
+    var blob = pdf.output("blob");
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "invitation.pdf";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+})
 console.log($("#printBTN"))

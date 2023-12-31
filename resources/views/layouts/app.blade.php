@@ -20,6 +20,7 @@
 @include('includes.header')
 
 @yield('content')
+@include('sweetalert::alert')
 </body>
 
 </html>

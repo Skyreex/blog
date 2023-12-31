@@ -4,11 +4,21 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\StagiaireModuleController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActionController;
+use RealRashid\SweetAlert\Facades\Alert;
 
+Auth::routes();
+Route::get('/register');
+
+Route::get("/alert", function () {
+  Alert::success('Success Title', 'Success Message');
+  return view('home');
+});
 
 Route::view('/', 'home')->name('home');
+
 
 // IMC
 Route::get('/bmi', [HomeController::class, 'bmi'])->name('bmi.index');

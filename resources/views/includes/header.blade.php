@@ -98,6 +98,15 @@
             </div>
           </div>
         </div>
+        @auth
+          <form method="post" action="{{ route('logout') }}">
+            @csrf
+          <button class="nav__link border bg-red-800 hover:bg-red-900 selected:bg-red-800 hover:text-white text-white">Logout</button>
+          </form>
+        @else
+          <a class="nav__link border bg-black hover:bg-black/90 selected:bg-black/90 hover:text-white text-white"
+             href="{{ route('login') }}">Login</a>
+        @endauth
       </nav>
     </div>
   </div>
